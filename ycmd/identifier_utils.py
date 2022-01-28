@@ -147,6 +147,8 @@ FILETYPE_TO_IDENTIFIER_REGEX = {
                           r"(?:->|(:?\\x[0-9A-Fa-f]+;|[!$%&*/:<=>?~^]|[^\W\d]))"
                           r"(?:\\x[0-9A-Fa-f]+;|[-+.@!$%&*/:<=>?~^\w])*",
                           re.UNICODE ),
+    # added by MIES
+    'markdown': re.compile( r"[:@]?\w+:?", re.UNICODE),
 }
 
 FILETYPE_TO_IDENTIFIER_REGEX[ 'typescript' ] = (
@@ -160,6 +162,10 @@ FILETYPE_TO_IDENTIFIER_REGEX[ 'lisp' ] = (
   FILETYPE_TO_IDENTIFIER_REGEX[ 'clojure' ] )
 FILETYPE_TO_IDENTIFIER_REGEX[ 'racket' ] = (
   FILETYPE_TO_IDENTIFIER_REGEX[ 'scheme' ] )
+FILETYPE_TO_IDENTIFIER_REGEX[ 'vimwiki' ] = (
+  FILETYPE_TO_IDENTIFIER_REGEX[ 'markdown' ] )
+FILETYPE_TO_IDENTIFIER_REGEX[ 'tagmatches' ] = (
+  FILETYPE_TO_IDENTIFIER_REGEX[ 'markdown' ] )
 
 
 def CommentAndStringRegexForFiletype( filetype ):
